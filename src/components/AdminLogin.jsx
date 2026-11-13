@@ -1,4 +1,4 @@
-cat << 'EOF' > ~/soglom-mahalla-2/src/components/AdminLogin.jsx
+
 import React, { useState, useEffect } from 'react';
 import { User, Lock, ArrowRight, Mail, Phone, Hash, UserPlus, ArrowLeft, CheckCircle2, Copy } from 'lucide-react';
 
