@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import AdminLogin from './components/AdminLogin';
-import DoctorRegister from './components/DoctorRegister';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import AdminPanel from './pages/AdminPanel';
+import DoctorPanel from './pages/DoctorPanel';
+import PatientPanel from './pages/PatientPanel';
 
-export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+function App() {
   return (
-    <div>
-      {!isLoggedIn ? (
-        <AdminLogin onLoginSuccess={() => setIsLoggedIn(true)} />
-      ) : (
-        <DoctorRegister onLogout={() => setIsLoggedIn(false)} />
-      )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/admin" replace />} />
+        <Route path="/admin/*" element={<AdminPanel />} />
+        <Route path="/doctor/*" element={<DoctorPanel />} />
+        <Route path="/patient/*" element={<PatientPanel />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;
